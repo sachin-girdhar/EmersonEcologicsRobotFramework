@@ -19,15 +19,17 @@ ${PriceAtPopUp_X}                   xpath=//div[@class='total-price-wrapper']//h
 ${SubTotal_X}                       xpath=//span[@class='sub-total cart-summary-number ng-binding']
 ${NoOfIteminCart_X}                 xpath=//span[@class='cart-item cart-summary-number ng-binding']
 ${QuantityToAddCart}                xpath=(//div[@class='layout-row']//input)[1]
-
-
+${Quantity_Input}               xpath=//div[@class='layout-row']//input[@name='quantity']
+${ExpressCheckout}              xpath=//div[@id='navbar-main']//a[contains(text(),'View or Edit Cart')]
+${continue_shopping}    id=continueShoppingBtn
+${cart}                 xpath=//span[contains(text(),'Cart')]
 
 ###                                     Search Product                                        ##################
 
 ${ProductName}            AY111
 ${URL}            https://qa-ares.emersonecologics.com/
 ${BROWSER}        CHROME
-${un}             jmeterprac1@mailinator.com
+${un}             prac1407@yap.com
 ${pw}             Test@1234
 ${Tit}            Emerson Ecologics
 ${TimeOut}        200 Seconds

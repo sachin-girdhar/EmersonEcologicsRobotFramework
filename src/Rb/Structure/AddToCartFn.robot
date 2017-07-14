@@ -8,6 +8,7 @@ Resource   C:/Users/vivek.jha/PycharmProjects/Rb/BaseLib/CommonMethods.robot
 ${TimeOut}       20 Seconds
 
 ${Element is not Prsent message}   Element is not prsent
+${One count} =   1
 
 
 
@@ -57,9 +58,9 @@ Verify Quantity before and after Decrement No of Products
     sleep  10
     ${QuantityAfterUpdate}   Get Text   ${NoOfIteminCart_X}
     ${QuantityAfterUpdate_Int}  Convert To Integer  ${QuantityAfterUpdate}
-    ${QuantityAfterUpdate_Int} =  Evaluate  ${QuantityAfterUpdate_Int} + 1
+    ${QuantityAfterUpdate_Int} =  Evaluate  ${QuantityAfterUpdate_Int}+${One count}
     Log To Console    ${QuantityAfterUpdate_Int}
-    Run Keyword If    ${Quantity_Int}   ${QuantityAfterUpdate_Int}     Log To Console    ${QuantityAfterUpdate_Int}
+    Run Keyword If    ${Quantity_Int} == ${QuantityAfterUpdate_Int}     Log To Console    ${QuantityAfterUpdate_Int}
     Log To Console    ${QuantityAfterUpdate_Int}
 
 
@@ -75,8 +76,49 @@ Verify Quantity before and after Increment No of Products
    ${QuantityAfterUpdate1}   Get Text   ${NoOfIteminCart_X}
    ${QuantityAfterUpdate2}   Convert To Integer   ${QuantityAfterUpdate1}
    Log To Console    ${QuantityAfterUpdate2}
+   Run Keyword If    ${QuantityAfterUpdate_Int} ==  ${QuantityAfterUpdate2}  Log To Console     Quantitiy is Matching
 
 
+Increment Quantity After Clear input
+   Sleep   10
+  Clear Element Text    ${Quantity_Input}
+  ${Disableattribute}=   Get Element Attribute   ${updateButton_X}@disabled
+  Log To Console   ${Disableattribute}
+  Assert Message Equals     ${Disableattribute}    true
+  Double Click Element   ${ButtonPlus_X}
+  ${Disableattribute1}=   Get Element Attribute   ${updateButton_X}@disabled
+  Log To Console   ${Disableattribute1}
+  Double Click Element    ${updateButton_X}
+
+  ${Disableattribute}=  Get Element Attribute   ${ButtonMinus_X}@disabled
+  Log To Console   ${Disableattribute}
+  Assert Message Equals     ${Disableattribute}    true
+  Sleep   5
+  Double Click Element   ${ButtonPlus_X}
+  Sleep    5
+  Double Click Element    ${updateButton_X}
+  Sleep    3
+  ${QuantityAfterUpdate1}   Get Text   ${NoOfIteminCart_X}
+  ${QuantityAfterUpdate2}   Convert To Integer   ${QuantityAfterUpdate1}
+  Log To Console    ${QuantityAfterUpdate2}
+  Sleep    3
+  Double Click Element   ${ButtonMinus_X}
+  Sleep    5
+  Double Click Element    ${updateButton_X}
+  Sleep    5
+  ${QuantityAfterUpdate}   Get Text   ${NoOfIteminCart_X}
+  ${QuantityAfterUpdate_INt}   Convert To Integer   ${QuantityAfterUpdate}
+  Log To Console    ${QuantityAfterUpdate_INt}
+  ${QuantityAfterUpdate_Int} =  Evaluate  ${QuantityAfterUpdate_INt}+${One count}
+  Log To Console    ${QuantityAfterUpdate_Int}
+  Run Keyword If    ${QuantityAfterUpdate2} == ${QuantityAfterUpdate_Int}     Log To Console    ${QuantityAfterUpdate_Int}
+  Log To Console    ${QuantityAfterUpdate_Int}
 
 
+Increase and Decrease Quantity of Product at My Cart Page
+   Double Click Element    ${continue_shopping}
+   Sleep   5
+   Double Click Element    ${cart}
+   Sleep   5
+   Double Click Element    ${ExpressCheckout}
 
