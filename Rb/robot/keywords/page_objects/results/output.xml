@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170711 21:01:14.594" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="C:\Users\vivek.jha\workspace\Robot-Script\robot\keywords\page_objects" id="s1" name="Page Objects">
+<suite source="C:\Users\vivek.jha\workspace\Robot-Script\robot\keywords\page_objects\Exp.robot" id="s1-s1" name="Exp">
+<test id="s1-s1-t1" name="[TC-001]-Launching the browser and search and launch the 'Emerson' Application on Google.com">
+<kw name="Launch Browser">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170711 21:01:15.730" level="INFO">Opening browser 'CHROME' to base url 'https://stage-ares.emersonecologics.com/'</msg>
+<status status="PASS" endtime="20170711 21:01:45.945" starttime="20170711 21:01:15.730"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170711 21:01:47.139" starttime="20170711 21:01:45.946"></status>
+</kw>
+<status status="PASS" endtime="20170711 21:01:47.139" starttime="20170711 21:01:15.729"></status>
+</kw>
+<kw name="Search Application On Google">
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${Login/RegisterLink_X}</arg>
+</arguments>
+<msg timestamp="20170711 21:01:47.140" level="INFO">Double clicking element 'xpath=//*[@id='navbar-main']/div/div/ul/li[2]/a'.</msg>
+<status status="PASS" endtime="20170711 21:01:53.816" starttime="20170711 21:01:47.139"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${userName_X}</arg>
+<arg>${un}</arg>
+</arguments>
+<msg timestamp="20170711 21:01:53.817" level="INFO">Typing text 'jmeterprac1@mailinator.com' into text field 'name=EmailAddress'</msg>
+<status status="PASS" endtime="20170711 21:01:54.001" starttime="20170711 21:01:53.816"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${Password_X}</arg>
+<arg>${pw}</arg>
+</arguments>
+<msg timestamp="20170711 21:01:54.001" level="INFO">Typing text 'Test@1234' into text field 'id=Password'</msg>
+<status status="PASS" endtime="20170711 21:01:54.102" starttime="20170711 21:01:54.001"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LoginButton_X}</arg>
+</arguments>
+<msg timestamp="20170711 21:01:54.103" level="INFO">Clicking button 'xpath=//button[contains(text(),'Submit')]'.</msg>
+<status status="PASS" endtime="20170711 21:02:06.333" starttime="20170711 21:01:54.102"></status>
+</kw>
+<status status="PASS" endtime="20170711 21:02:06.333" starttime="20170711 21:01:47.139"></status>
+</kw>
+<kw name="Assertion on HomePage">
+<kw name="Log Title" library="Selenium2Library">
+<doc>Logs and returns the title of current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20170711 21:02:06.348" level="INFO">Emerson Ecologics</msg>
+<msg timestamp="20170711 21:02:06.348" level="INFO">${title} = Emerson Ecologics</msg>
+<status status="PASS" endtime="20170711 21:02:06.349" starttime="20170711 21:02:06.335"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${Tit}</arg>
+</arguments>
+<status status="PASS" endtime="20170711 21:02:06.350" starttime="20170711 21:02:06.349"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${title}</arg>
+</arguments>
+<status status="PASS" endtime="20170711 21:02:06.351" starttime="20170711 21:02:06.350"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Tit}</arg>
+</arguments>
+<status status="PASS" endtime="20170711 21:02:06.351" starttime="20170711 21:02:06.351"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${GlobalSearch_X}</arg>
+<arg>${APP}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:06.352" level="INFO">Typing text 'AY111' into text field 'id=input-1'</msg>
+<status status="PASS" endtime="20170711 21:02:06.560" starttime="20170711 21:02:06.351"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${SearchIconButton_X}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:06.561" level="INFO">Double clicking element 'xpath=//a[@ng-click='vm.searchNow(searchText)']'.</msg>
+<status status="PASS" endtime="20170711 21:02:06.644" starttime="20170711 21:02:06.560"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${SearchedProdLink_X}</arg>
+<arg>20 Seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170711 21:02:07.899" starttime="20170711 21:02:06.645"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${SearchedProdLink_X}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:07.899" level="INFO">Double clicking element 'xpath=//div[@id='main']//h3/a'.</msg>
+<status status="PASS" endtime="20170711 21:02:07.962" starttime="20170711 21:02:07.899"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${SearchProductAddTocartLink_X}</arg>
+<arg>20 Seconds</arg>
+</arguments>
+<status status="PASS" endtime="20170711 21:02:10.052" starttime="20170711 21:02:07.962"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${SearchProductAddTocartLink_X}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:10.052" level="INFO">Double clicking element 'xpath=//div[@id='main']//a[@ng-if='!vm.disableShoppingCart()']'.</msg>
+<status status="PASS" endtime="20170711 21:02:10.085" starttime="20170711 21:02:10.052"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${CartIcon}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:10.086" level="INFO">Double clicking element 'xpath=//span[contains(text(),'Cart')]'.</msg>
+<status status="PASS" endtime="20170711 21:02:10.158" starttime="20170711 21:02:10.086"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${ExpressCheckoutCart_x}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:10.158" level="INFO">Double clicking element 'xpath=//li/a[contains(text(),'View or Edit Cart')]'.</msg>
+<status status="PASS" endtime="20170711 21:02:10.374" starttime="20170711 21:02:10.158"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${ExpressCheckout}</arg>
+<arg>${TimeOut}</arg>
+</arguments>
+<status status="PASS" endtime="20170711 21:02:10.475" starttime="20170711 21:02:10.374"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${ExpressCheckout}</arg>
+</arguments>
+<msg timestamp="20170711 21:02:10.476" level="INFO">Double clicking element 'xpath=//div/a/span[contains(text(),'EXPRESS CHECKOUT')]'.</msg>
+<status status="PASS" endtime="20170711 21:02:10.541" starttime="20170711 21:02:10.475"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${CVVCode}</arg>
+<arg>${TimeOut}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170711 21:05:30.993" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170711 21:05:30.993" starttime="20170711 21:05:30.637"></status>
+</kw>
+<msg timestamp="20170711 21:05:31.009" level="FAIL">Element locator 'name=cvvCode' did not match any elements after 3 minutes 20 seconds</msg>
+<status status="FAIL" endtime="20170711 21:05:31.009" starttime="20170711 21:02:10.542"></status>
+</kw>
+<status status="FAIL" endtime="20170711 21:05:31.009" starttime="20170711 21:02:06.334"></status>
+</kw>
+<status status="FAIL" endtime="20170711 21:05:31.010" critical="yes" starttime="20170711 21:01:15.728">Element locator 'name=cvvCode' did not match any elements after 3 minutes 20 seconds</status>
+</test>
+<status status="FAIL" endtime="20170711 21:05:31.010" starttime="20170711 21:01:14.771"></status>
+</suite>
+<status status="FAIL" endtime="20170711 21:05:31.012" starttime="20170711 21:01:14.630"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Page Objects" pass="0">Page Objects</stat>
+<stat fail="1" id="s1-s1" name="Exp" pass="0">Page Objects.Exp</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
