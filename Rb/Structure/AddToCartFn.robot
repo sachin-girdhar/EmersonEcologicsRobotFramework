@@ -1,7 +1,7 @@
 *** Settings ***
 Library    Selenium2Library
-Resource   ../Library/AddToCart_Data_We.robot
-Resource   ../BaseLib/CommonMethods.robot
+Resource    ../Library/AddToCart_Data_We.robot
+Resource    ../BaseLib/CommonMethods.robot
 
 *** Variables ***
 
@@ -9,8 +9,9 @@ ${TimeOut}       20 Seconds
 
 ${Element is not Prsent message}   Element is not prsent
 ${One count} =   1
-
-
+${Invisible_Update}    update-quantity-button md-button md-ink-ripple hide-xs hide-sm
+${CountOfItemsBeforeChange1}
+${Zero_count}  =  set variable     0
 
 *** Keywords ***
 Search Product
@@ -31,7 +32,7 @@ Click To AddCart Icon
   #Click Element      ${AddToCartProduct_X}
   # sleep   30
 
-      @{Items}=     Create List     N7670
+      @{Items}=     Create List     AY111
       : For  ${Item}  IN RANGE    0       1
         \   Wait Until Element Is Visible   id=input-1
         \   log  ${Items[${Item}]}
@@ -66,7 +67,6 @@ Verify Quantity before and after Decrement No of Products
 
 
 Verify Quantity before and after Increment No of Products
-
    Wait Until Element Is Visible   ${ButtonPlus_X}        ${TimeOut}
    Double Click Element   ${ButtonPlus_X}
    sleep   10
@@ -116,9 +116,73 @@ Increment Quantity After Clear input
 
 
 Increase and Decrease Quantity of Product at My Cart Page
+   Sleep  10
    Double Click Element    ${continue_shopping}
    Sleep   5
-   Double Click Element    ${cart}
+   Double Click Element    ${CartIcon}
+   ${CountOfItemsBeforeChange}   Get Text  ${NotOfItemsInCart}
+   Log To Console   ${CountOfItemsBeforeChange}
+   ${CountOfItemsBeforeChange1}    Convert To Integer    ${CountOfItemsBeforeChange}
+   Log To Console   ${CountOfItemsBeforeChange1}
    Sleep   5
-   Double Click Element    ${ExpressCheckout}
+   Double Click Element    ${ViewOrEditCartLink}
+
+
+Verify Update Button after Increasing No of Products
+   Sleep  5
+   ${Disable_Update}   Get Element Attribute   ${UpdateButton}@class
+   Log To Console     ${Invisible_Update}
+   Should be equal as strings    ${Disable_Update}    ${Invisible_Update}
+   Log To Console     ${Disable_Update}
+   Sleep  5
+   Double Click Element   ${ButtonPlusAtMyCart}
+   Sleep  10
+   Double Click Element         ${UpdateButtonWhileVisible}
+
+
+Verify Update Button after Decreasing No of Products
+     Sleep  5
+     ${Disable_Update}   Get Element Attribute   ${UpdateButton}@class
+     Log To Console     ${Invisible_Update}
+     Should be equal as strings    ${Disable_Update}    ${Invisible_Update}
+     Log To Console     ${Disable_Update}
+     Sleep  15
+     Double Click Element    ${ButtonMinusAtMyCart}
+     Sleep  5
+     Double Click Element         ${UpdateButtonWhileVisible}
+     Sleep   15
+     Double Click Element    ${CartIcon}
+     ${CountOfItemsAfterChange}    Get Text    ${NotOfItemsInCart}
+     Log To Console    ${CountOfItemsAfterChange}
+     ${CountOfItemsAfterChange1}   Convert To Integer    ${CountOfItemsAfterChange}
+     Log To Console    ${CountOfItemsAfterChange1}
+    # Run Keyword If    ${CountOfItemsBeforeChange1} == ${CountOfItemsAfterChange1}     Log To Console    ${CountOfItemsAfterChange1}
+
+
+Delete Items from Cart
+      Double Click Element    ${CartIcon}
+      ${CountOfItemsAfterChange}    Get Text    ${NotOfItemsInCart}
+      Log To Console    ${CountOfItemsAfterChange}
+      ${CountOfItemsAfterChange1}   Convert To Integer    ${CountOfItemsAfterChange}
+      Log To Console    ${CountOfItemsAfterChange1}
+      Double Click Element    ${ViewOrEditCartLink}
+      Sleep  10
+      Double Click Element    ${Delete_Button}
+      Sleep  3
+      Double Click Element    ${Remove_Button}
+      Sleep  3
+      Double Click Element    ${CartIcon}
+      Sleep  3
+      ${CountOfItemsAfterDelete}    Get Text    ${NotOfItemsInCart}
+      ${CountOfItemsAfterDelete1}   Convert To Integer    ${CountOfItemsAfterDelete}
+      Run Keyword If   ${CountOfItemsAfterDelete1} ==  ${Zero_count}   Log To Console       ${CountOfItemsAfterDelete}
+
+
+
+
+
+
+
+
+
 

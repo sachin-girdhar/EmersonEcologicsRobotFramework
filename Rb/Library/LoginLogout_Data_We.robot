@@ -5,10 +5,10 @@ Library    Selenium2Library
 #########          Data               ###############
 ${URL}            https://stage-ares.emersonecologics.com/
 ${BROWSER}        CHROME
-${un}             jmeterprac1@mailinator.com
-${pw}             Test@1234
-${Tit}            Emerson Ecologics
+${un}             prac1407@yap.com
 
+${Tit}            Emerson Ecologics
+${pw}             Test@1234
 
 
 

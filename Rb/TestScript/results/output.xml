@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170720 20:53:29.022" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="C:\Users\vivek.jha\PycharmProjects\Rb\TestScript" id="s1" name="TestScript">
+<suite source="C:\Users\vivek.jha\PycharmProjects\Rb\TestScript\AddToCartTest.robot" id="s1-s1" name="AddToCartTest">
+<test id="s1-s1-t1" name="[TC-004]-Launching the browser and search and Delete Cart Item">
+<kw name="Launch Browser" library="LoginandLogout">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170720 20:53:29.185" level="INFO">Opening browser 'CHROME' to base url 'https://qa-ares.emersonecologics.com/'</msg>
+<status status="PASS" endtime="20170720 20:53:56.463" starttime="20170720 20:53:29.185"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170720 20:53:57.607" starttime="20170720 20:53:56.464"></status>
+</kw>
+<status status="PASS" endtime="20170720 20:53:57.607" starttime="20170720 20:53:29.185"></status>
+</kw>
+<kw name="Login" library="LoginandLogout">
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${Login/RegisterLink_X}</arg>
+</arguments>
+<msg timestamp="20170720 20:53:57.608" level="INFO">Double clicking element 'xpath=//*[@id='navbar-main']/div/div/ul/li[2]/a'.</msg>
+<status status="PASS" endtime="20170720 20:54:04.170" starttime="20170720 20:53:57.608"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${userName_X}</arg>
+<arg>${un}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:04.170" level="INFO">Typing text 'prac1407@yap.com' into text field 'name=EmailAddress'</msg>
+<status status="PASS" endtime="20170720 20:54:04.330" starttime="20170720 20:54:04.170"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${Password_X}</arg>
+<arg>${pw}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:04.330" level="INFO">Typing text 'Test@1234' into text field 'id=Password'</msg>
+<status status="PASS" endtime="20170720 20:54:04.472" starttime="20170720 20:54:04.330"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>${LoginButton_X}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:04.472" level="INFO">Clicking button 'xpath=//button[contains(text(),'Submit')]'.</msg>
+<status status="PASS" endtime="20170720 20:54:13.728" starttime="20170720 20:54:04.472"></status>
+</kw>
+<status status="PASS" endtime="20170720 20:54:13.728" starttime="20170720 20:53:57.607"></status>
+</kw>
+<kw name="Assertion on HomePage" library="LoginandLogout">
+<kw name="Log Title" library="Selenium2Library">
+<doc>Logs and returns the title of current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20170720 20:54:13.736" level="INFO">Emerson Ecologics</msg>
+<msg timestamp="20170720 20:54:13.736" level="INFO">${title} = Emerson Ecologics</msg>
+<status status="PASS" endtime="20170720 20:54:13.736" starttime="20170720 20:54:13.729"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>${Tit}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 20:54:13.737" starttime="20170720 20:54:13.737"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${title}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 20:54:13.738" starttime="20170720 20:54:13.737"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${Tit}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 20:54:13.738" starttime="20170720 20:54:13.738"></status>
+</kw>
+<status status="PASS" endtime="20170720 20:54:13.738" starttime="20170720 20:54:13.729"></status>
+</kw>
+<kw name="Delete Items from Cart" library="AddToCartFn">
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${CartIcon}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:13.739" level="INFO">Double clicking element 'xpath=//span[contains(text(),'Cart')]'.</msg>
+<status status="PASS" endtime="20170720 20:54:13.802" starttime="20170720 20:54:13.739"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${NotOfItemsInCart}</arg>
+</arguments>
+<assign>
+<var>${CountOfItemsAfterChange}</var>
+</assign>
+<msg timestamp="20170720 20:54:13.868" level="INFO">${CountOfItemsAfterChange} = 1</msg>
+<status status="PASS" endtime="20170720 20:54:13.868" starttime="20170720 20:54:13.803"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${CountOfItemsAfterChange}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 20:54:13.871" starttime="20170720 20:54:13.870"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>${CountOfItemsAfterChange}</arg>
+</arguments>
+<assign>
+<var>${CountOfItemsAfterChange1}</var>
+</assign>
+<msg timestamp="20170720 20:54:13.872" level="INFO">${CountOfItemsAfterChange1} = 1</msg>
+<status status="PASS" endtime="20170720 20:54:13.872" starttime="20170720 20:54:13.871"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${CountOfItemsAfterChange1}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 20:54:13.872" starttime="20170720 20:54:13.872"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${ViewOrEditCartLink}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:13.873" level="INFO">Double clicking element 'xpath=//div[@id='navbar-main']//a[contains(text(),'View or Edit Cart')]'.</msg>
+<status status="PASS" endtime="20170720 20:54:14.083" starttime="20170720 20:54:13.872"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20170720 20:54:24.084" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20170720 20:54:24.084" starttime="20170720 20:54:14.083"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${Delete_Button}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:24.086" level="INFO">Double clicking element 'xpath=//button[@class='delete-item']'.</msg>
+<status status="PASS" endtime="20170720 20:54:24.173" starttime="20170720 20:54:24.085"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20170720 20:54:27.173" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170720 20:54:27.173" starttime="20170720 20:54:24.173"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${Remove_Button}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:27.175" level="INFO">Double clicking element 'xpath=//button[@class='confirm-remove md-button md-ink-ripple']'.</msg>
+<status status="PASS" endtime="20170720 20:54:27.272" starttime="20170720 20:54:27.174"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20170720 20:54:30.273" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170720 20:54:30.273" starttime="20170720 20:54:27.272"></status>
+</kw>
+<kw name="Double Click Element" library="Selenium2Library">
+<doc>Double click element identified by `locator`.</doc>
+<arguments>
+<arg>${CartIcon}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:30.273" level="INFO">Double clicking element 'xpath=//span[contains(text(),'Cart')]'.</msg>
+<status status="PASS" endtime="20170720 20:54:30.338" starttime="20170720 20:54:30.273"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20170720 20:54:33.339" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20170720 20:54:33.339" starttime="20170720 20:54:30.338"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${NotOfItemsInCart}</arg>
+</arguments>
+<assign>
+<var>${CountOfItemsAfterDelete}</var>
+</assign>
+<msg timestamp="20170720 20:54:33.408" level="INFO">${CountOfItemsAfterDelete} = 0</msg>
+<status status="PASS" endtime="20170720 20:54:33.408" starttime="20170720 20:54:33.340"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>${CountOfItemsAfterDelete}</arg>
+</arguments>
+<assign>
+<var>${CountOfItemsAfterDelete1}</var>
+</assign>
+<msg timestamp="20170720 20:54:33.409" level="INFO">${CountOfItemsAfterDelete1} = 0</msg>
+<status status="PASS" endtime="20170720 20:54:33.409" starttime="20170720 20:54:33.408"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${CountOfItemsAfterDelete1} ==</arg>
+<arg>${CountOfItemsAfterDelete1}</arg>
+<arg>Log To Console</arg>
+<arg>${CountOfItemsAfterDelete}</arg>
+</arguments>
+<msg timestamp="20170720 20:54:33.410" level="FAIL">Evaluating expression '0 ==' failed: SyntaxError: unexpected EOF while parsing (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" endtime="20170720 20:54:33.410" starttime="20170720 20:54:33.409"></status>
+</kw>
+<status status="FAIL" endtime="20170720 20:54:33.410" starttime="20170720 20:54:13.738"></status>
+</kw>
+<status status="FAIL" endtime="20170720 20:54:33.410" critical="yes" starttime="20170720 20:53:29.184">Evaluating expression '0 ==' failed: SyntaxError: unexpected EOF while parsing (&lt;string&gt;, line 1)</status>
+</test>
+<status status="FAIL" endtime="20170720 20:54:33.411" starttime="20170720 20:53:29.048"></status>
+</suite>
+<suite source="C:\Users\vivek.jha\PycharmProjects\Rb\TestScript\Experiment.robot" id="s1-s2" name="Experiment">
+<test id="s1-s2-t1" name="sum of variables">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>20</arg>
+</arguments>
+<assign>
+<var>${calculatedTotalPrice}</var>
+</assign>
+<msg timestamp="20170720 20:54:33.415" level="INFO">${calculatedTotalPrice} = 20</msg>
+<status status="PASS" endtime="20170720 20:54:33.415" starttime="20170720 20:54:33.415"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<assign>
+<var>${productPrice1}</var>
+</assign>
+<msg timestamp="20170720 20:54:33.416" level="INFO">${productPrice1} = 10</msg>
+<status status="PASS" endtime="20170720 20:54:33.416" starttime="20170720 20:54:33.416"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${calculatedTotalPrice}+${productPrice1}</arg>
+</arguments>
+<assign>
+<var>${calculatedTotalPrice}</var>
+</assign>
+<msg timestamp="20170720 20:54:33.416" level="INFO">${calculatedTotalPrice} = 30</msg>
+<status status="PASS" endtime="20170720 20:54:33.416" starttime="20170720 20:54:33.416"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>${calculatedTotalPrice}</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20170720 20:54:33.417" level="INFO">${count} = 30</msg>
+<status status="PASS" endtime="20170720 20:54:33.417" starttime="20170720 20:54:33.416"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${count}</arg>
+</arguments>
+<status status="PASS" endtime="20170720 20:54:33.417" starttime="20170720 20:54:33.417"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>https://stage-ares.emersonecologics.com/</arg>
+<arg>CHROME</arg>
+</arguments>
+<msg timestamp="20170720 20:54:33.417" level="INFO">Opening browser 'CHROME' to base url 'https://stage-ares.emersonecologics.com/'</msg>
+<status status="PASS" endtime="20170720 20:54:55.447" starttime="20170720 20:54:33.417"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>20</arg>
+</arguments>
+<msg timestamp="20170720 20:55:15.448" level="INFO">Slept 20 seconds</msg>
+<status status="PASS" endtime="20170720 20:55:15.448" starttime="20170720 20:54:55.447"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${count} == ${count2}</arg>
+<arg>Click Element</arg>
+<arg>${xp}</arg>
+</arguments>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xp}</arg>
+</arguments>
+<msg timestamp="20170720 20:55:15.452" level="INFO">Clicking element 'xpath=//*[@id='navbar-main']/div/div/ul/li[2]/a'.</msg>
+<status status="PASS" endtime="20170720 20:55:21.239" starttime="20170720 20:55:15.451"></status>
+</kw>
+<status status="PASS" endtime="20170720 20:55:21.240" starttime="20170720 20:55:15.449"></status>
+</kw>
+<status status="PASS" endtime="20170720 20:55:21.240" critical="yes" starttime="20170720 20:54:33.415"></status>
+</test>
+<status status="PASS" endtime="20170720 20:55:21.240" starttime="20170720 20:54:33.412"></status>
+</suite>
+<status status="FAIL" endtime="20170720 20:55:21.242" starttime="20170720 20:53:29.026"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="1">Critical Tests</stat>
+<stat fail="1" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="TestScript" pass="1">TestScript</stat>
+<stat fail="1" id="s1-s1" name="AddToCartTest" pass="0">TestScript.AddToCartTest</stat>
+<stat fail="0" id="s1-s2" name="Experiment" pass="1">TestScript.Experiment</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
