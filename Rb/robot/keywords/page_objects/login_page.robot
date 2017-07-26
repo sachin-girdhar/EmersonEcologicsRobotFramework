@@ -10,6 +10,25 @@ ${login_page_password}              id=Password
 ${login_page_login_button}          xpath=/html/body/div/main/div/form/div[2]/button/span
 
 
+
+##                               Merge With Other FrameWork -RB                                       ############
+
+${URL}            https://stage-ares.emersonecologics.com/
+${BROWSER}        CHROME
+${un}             prac1407@yap.com
+
+${Tit}            Emerson Ecologics
+${pw}             Test@1234
+
+#########     Webelement     #################
+
+${Login/RegisterLink_X}            xpath=//*[@id='navbar-main']/div/div/ul/li[2]/a
+${userName_X}                      name=EmailAddress
+${Password_X}                      id=Password
+${LoginButton_X}                   xpath=//button[contains(text(),'Submit')]
+
+
+
 ###### Strings Variables ######
 
 
@@ -35,3 +54,22 @@ Click EE Login Button
     Click Element                       ${login_page_login_button}
 
 
+
+
+##                               Merge With Other FrameWork -RB                                       ############
+
+Launch Browser
+    open Browser      ${URL}     ${BROWSER}
+    Maximize Browser Window
+
+Login
+    Double Click Element    ${Login/RegisterLink_X}
+    Input Text      ${userName_X}     ${un}
+    Input Text      ${Password_X}     ${pw}
+    Click Button    ${LoginButton_X}
+
+Assertion on HomePage
+  ${title}=   Log Title
+  Should Be Equal As Strings    ${title}   ${Tit}
+  Log To Console   ${title}
+  Log To Console   ${Tit}
