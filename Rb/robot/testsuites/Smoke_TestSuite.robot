@@ -14,32 +14,33 @@ Resource            ../keywords/page_objects/ContinueShopping_Page.robot
 #Test Setup         Login And Navigate To login Page
 #Test Teardown      Close Browser Session
 #Force Tags          UI
-
+*** Variables ***
+${ProductName}                    UFDF6
 
 
 
 *** Test Cases ***
 
 #####    About You Section    #####
-Login section verification
-     #Login To EE Portal    jmeterprac1@mailinator.com      Test@1234       CHROME
-     Launch Browser
-     Login
-     Sleep  5
-     Verify Dashboard Launched
-     Add Multiple Items to Cart
-     Check Out1
-     ADD Address
-     Click on delivery
-     select shipping option
-     Enter Credit Card Details
-     Place Order
+#Login section verification
+#     #Login To EE Portal    jmeterprac1@mailinator.com      Test@1234       CHROME
+#     Launch Browser
+#     Login
+#     Sleep  5
+#     Verify Dashboard Launched
+#     Add Multiple Items to Cart
+#     Check Out1
+#     ADD Address
+#     Click on delivery
+#     select shipping option
+#     Enter Credit Card Details
+#     Place Order
 
 #[TC-001]-Launching the browser and search and Add To Cart Product
 #  Launch Browser
 #  Login
 #  Assertion on HomePage
-#  #Search Product
+#  Search Product
 #  Click To AddCart Icon
 #  Verify Quantity before and after Increment No of Products
 #  Verify Quantity before and after Decrement No of Products
@@ -69,3 +70,10 @@ Login section verification
 #    Assertion on HomePage
 #    Delete Items from Cart
 #    Close Browser Session
+
+[TC-005]-Verify Practitioner can not Purchase Metagenics Product when credential is not Approved
+    Launch Browser
+    Login
+    Assertion on HomePage
+    Search Product     ${ProductName}
+    Verify Add To Cart Button IsEnable

@@ -21,7 +21,7 @@ ${ExpressCheckoutCart_x}          xpath=//li/a[contains(text(),'View or Edit Car
 ${ExpressCheckoutButton}          xpath=//div/a/span[contains(text(),'EXPRESS CHECKOUT')]
 ${CVVCode}                        name=cvvCode
 #${AddToCartProduct_X}            xpath=//div[@id='main']//product-quantity-from/div[1]/a
-${AddToCartProduct_X}             xpath=/html/body/div[1]/div/div/div/div[3]/div[2]/div[2]/ul/li[1]/div/product-card/div/div/div[3]/div[2]/div/product-quantity-from/div[1]/a
+${AddToCartProduct_X}             xpath=//a[@class='add-cart']
 ${ButtonMinus_X}                  xpath=//div[@class='layout-row']//button[@ng-click='$ctrl.decrement()']
 ${ButtonPlus_X}                   xpath=//div[@class='layout-row']//button[@ng-click='$ctrl.increment()']
 ${updateButton_X}                 xpath=//div[@class='layout-row']//button[@ng-if='!$ctrl.updating']
@@ -39,11 +39,11 @@ ${UpdateButtonWhileVisible}       xpath=//button[@class='update-quantity-button 
 ${NotOfItemsInCart}               xpath=//div[@flex='20']//span
 ${Delete_Button}                  xpath=//button[@class='delete-item']
 ${Remove_Button}                  xpath=//button[@class='confirm-remove md-button md-ink-ripple']
-
+${AddToCartIconWhileDisable}      xpath=//a[@class='add-cart']/..
 
 ###                                     Input Data                                       ##################
 
-${ProductName}                    AY111
+
 ${URL}                            https://qa-ares.emersonecologics.com/
 ${BROWSER}                        CHROME
 ${un}                             prac1407@yap.com
@@ -55,10 +55,19 @@ ${CVVCodeValue}                   111
 
 *** Keywords ***
 Search Product
+   [Arguments]    ${ProductName}
    Input Text       ${Search_X}      ${ProductName}
    Double Click Element    ${SearchIconButton_X}
-   Wait Until Element Is Visible   ${AddToCartProduct_X}    ${TimeOut}
+
+
+Add Product To Cart
+   Sleep   10
    Double Click Element     ${AddToCartProduct_X}
+
+Verify Add To Cart Button IsEnable
+  Sleep   10
+  ${classAttributeAddToCartIcon}   Get Element Attribute   ${AddToCartIconWhileDisable}@class
+  Log To Console   ${classAttributeAddToCartIcon}
 
 #Add to Cart
 #    [Arguments]  ${add_cart}
